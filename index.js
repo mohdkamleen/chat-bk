@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { 
     cors: {
-        origin: "https://chat-mohd.vercel.app", // frontend URL
+        origin: ["https://chat-mohd.vercel.app","http://localhost:3000"], // frontend URL
         methods: ["GET", "POST"]
     }
 });
