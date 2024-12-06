@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { 
     cors: {
-        origin: "http://localhost:3000", // frontend URL
+        origin: "https://chat-mohd.vercel.app", // frontend URL
         methods: ["GET", "POST"]
     }
 });
@@ -20,11 +20,10 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("MongoDB connected"))
-    .catch(err => console.log(err));
-
+mongoose.connect(MONGO_URI).then((res) => {
+    console.log("DB connected host : " + mongoose.connection.host);
+  }).catch(err => console.log(err))
+  
 
     // server/index.js
 io.on('connection', (socket) => {
