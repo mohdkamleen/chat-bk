@@ -20,12 +20,11 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(MONGO_URI).then((res) => {
-    console.log("DB connected host : " + mongoose.connection.host);
-  }).catch(err => console.log(err))
-  
+// mongoose.connect(MONGO_URI).then((res) => {
+//     console.log("DB connected host : " + mongoose.connection.host);
+//   }).catch(err => console.log(err))
 
-    // server/index.js
+ 
 io.on('connection', (socket) => {
     console.log("User connected:", socket.id);
 
