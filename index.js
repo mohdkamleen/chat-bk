@@ -42,3 +42,11 @@ io.on('connection', (socket) => {
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+setInterval(_ => console.log("Keeping server alive.... ", new Date()),5000)
+
+
+
+
+
+
